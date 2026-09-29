@@ -1,0 +1,21 @@
+name: netflix
+
+profile: netflix
+
+seed-paths: ["seeds"]
+model-paths: ["models"]
+macro-paths: ["macros"]
+clean-targets:
+  - "target"
+  - "dbt_packages"
+
+seeds:
+  # Builds seeds into '<your_schema_name>_raw'
+  netflix:
+    +schema: raw
+
+models:
+  netflix:
+    +materialized: view
+    dim:
+      +materialized: table
